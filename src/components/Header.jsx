@@ -16,6 +16,7 @@ const Header = () => {
             <div className="header-search">
                 <input type="search" placeholder='Поиск'></input>
                   привет мир
+                  ghbdtn vbh
             </div>
         </div>
     </header>
