@@ -1,3 +1,8 @@
+
+body {
+  font-family: 'Montserrat Alternates', sans-serif;
+  
+}
 img {
   width: 100%;
 }
@@ -19,40 +24,5 @@ img {
   display: flex;
 justify-content: space-between;
 }
-.header {
-grid-area: header;
 
 
-
-}
-.logo {
-  grid-area: logo;
-  height: 25px;
-  }
-.logo img{
-height: 100%;
-}
-.nav-menu {
-  grid-area: nav-menu;
-}
-
-.main {
-  grid-area: main;
-}
-.main .container {
-  display: block;
-}
-.baners {
-  display: flex;
-  justify-content: space-between;
-}
-.bnrs-item{
-  width: 30%;
-}
-.footer {
-  grid-area: footer;
-  justify-content: space-between;
-}
-.menu-item-content a{
-  display: block;
-}

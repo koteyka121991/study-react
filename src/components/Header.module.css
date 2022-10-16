@@ -1,0 +1,20 @@
+.header {
+    grid-area: header;
+
+}
+
+.logo {   
+    height: 25px;
+}
+
+img {
+    height: 100%;
+}
+
+.nav_header a{
+  color: black;
+}
+
+.nav_item.active{
+    color: rgb(224, 12, 12);
+  }

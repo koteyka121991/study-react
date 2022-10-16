@@ -1,0 +1,16 @@
+.main {
+    grid-area: main;
+  }
+
+  .baners {
+    display: flex;
+    justify-content: space-between;
+  }
+  .bnrs_item{
+    width: 30%;
+  }
+  .main.container {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+  }

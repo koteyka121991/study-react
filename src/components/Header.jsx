@@ -1,12 +1,13 @@
 import React from 'react';
-
+import classes from './Header.module.css';
+console.log(classes);
 const Header = () => {
-    return <header className='header'>
+    return <header className={classes.header}>
         <div className='container'>
-            <div className="logo">
+            <div className={classes.logo}>
                 <img src='https://www.585zolotoy.ru/_nuxt/img/585-logo.1ebf474.svg'></img>
             </div>
-            <div className='nav-menu'>
+            <div className= {classes.nav_header}>
                 <nav className='nav-header'>
                     <a href="#">Каталог</a>
                     <a href="#">Акции</a>
