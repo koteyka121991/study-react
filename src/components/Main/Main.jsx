@@ -23,6 +23,11 @@ const Main =() => {
             <img src='https://static2.585.cloud/media/bunners/6292f7a5-7e14-42f4-b1c9-3bf7d71f4f29.webp'></img>
           </picture>
         </div>
+        <div className={classes.bnrs_item}>
+          <picture>
+            <img src='https://static2.585.cloud/media/bunners/6e5c55f6-2346-4772-b71e-c8db7501b40d.webp'></img>
+          </picture>
+        </div>
       </div>
       
       <section className='about-us'>

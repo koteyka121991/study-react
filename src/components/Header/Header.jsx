@@ -6,14 +6,12 @@ const Header = () => {
         <div className='container'>
             <div className={classes.logo}>
                 <img src='https://www.585zolotoy.ru/_nuxt/img/585-logo.1ebf474.svg'></img>
-            </div>
-            <div className= {classes.nav_header}>
+            </div>           
                 <nav className='nav-header'>
                     <a href="#">Каталог</a>
                     <a href="#">Акции</a>
                     <a href="#">Магазин</a>
-                </nav>
-            </div>
+                </nav>            
             <div className="header-search">
                 <input type="search" placeholder='Поиск'></input>
 
