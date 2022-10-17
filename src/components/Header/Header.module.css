@@ -11,10 +11,14 @@ img {
     height: 100%;
 }
 
-.nav_header a{
+.nav__menu a{
   color: black;
 }
 
-.nav_item.active{
+.nav__item.active{
     color: rgb(224, 12, 12);
   }
+
+.icon_search {
+    content: "\e901";
+}
