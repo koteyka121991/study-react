@@ -1,9 +1,8 @@
 .header {
     grid-area: header;
-
 }
 
-.logo {   
+.logo {
     height: 25px;
 }
 
@@ -11,13 +10,9 @@ img {
     height: 100%;
 }
 
-.nav__menu a{
-  color: black;
-}
-
-.nav__item.active{
+.nav__item.active {
     color: rgb(224, 12, 12);
-  }
+}
 
 .icon_search {
     content: "\e901";

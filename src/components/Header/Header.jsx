@@ -9,14 +9,13 @@ const Header = () => {
             <div className={classes.logo}>
                 <img src='https://www.585zolotoy.ru/_nuxt/img/585-logo.1ebf474.svg'></img>
             </div>
-            <div className='nav__menu'>           
-             <Navigation link='Каталог'/>
-             <Navigation link='Магазин'/>  
-             <Navigation link='Акции'/>  
-             </div>       
+              
+             <Navigation />
+            
+                
             <div className="search">            
                 <input type="search" placeholder='Поиск'>
-                    </input><i class={classes.icon_search}></i>
+                    </input>
             </div>
         </div>
     </header>

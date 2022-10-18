@@ -1,16 +1,14 @@
-.main {
-    grid-area: main;
-  }
-
-  .baners {
+.baners {
     display: flex;
     justify-content: space-between;
-  }
-  .bnrs_item{
+}
+
+.bnrs_item {
     width: 30%;
-  }
-  .main.container {
+}
+
+.container {
     display: block;
     max-width: 1200px;
     margin: 0 auto;
-  }
+}

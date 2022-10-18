@@ -4,8 +4,8 @@ import Baner from './Post/Baner';
 import classes from './Main.module.css';
 
 const Main = () => {
-  return <main className={classes.Main}>
-    <div className={`${classes.main} ${classes.container}`} >
+  return (
+    <div className={classes.container} >
       <div className={classes.baners}>
         <img src='https://static2.585.cloud/media/bunners/faf2f27a-f2c6-4730-a269-3630b7338e7f.webp'></img>
       </div>
@@ -26,7 +26,7 @@ const Main = () => {
         <p>Подарки на любой вкус!</p>
       </section>
     </div>
-  </main>
+  )
 }
 
 export default Main;
