@@ -1,8 +1,0 @@
-.footer {
-    grid-area: footer;
-    justify-content: space-between;
-  }
-  .menu_item_content a{
-    display: block;
-   color: black;
-  }
