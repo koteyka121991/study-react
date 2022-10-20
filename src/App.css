@@ -8,7 +8,7 @@ img {
 
 .wrapper {
     display: grid;
-    grid-template-areas: "header" "main" "footer";
+    grid-template-areas: "header" "page-content" "footer";
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr;
     height: 100vh;
@@ -23,6 +23,6 @@ img {
     justify-content: space-between;
 }
 
-.main {
-    grid-area: main;
+.page-content {
+    grid-area: page-content;
 }

@@ -2,15 +2,9 @@
     max-width: 1200px;
     margin: 0 auto;
     justify-content: space-between;
-    display: block;
-}
-
-.banners {
     display: flex;
 }
 
-.item {
-    width: 25%;
-    left: 5px;
-    right: 5px;
+.product {
+    width: 50%;
 }
