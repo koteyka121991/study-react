@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+}
+.logo {
+    width: 200px;
+} 
+
+a{
+    color: black;
+    text-decoration:none;
+}
+.active-link{
+    color: rgb(226, 21, 83);
+    cursor: default;
+    text-decoration:underline rgb(226, 21, 83);
+}

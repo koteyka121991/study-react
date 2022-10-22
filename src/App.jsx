@@ -1,19 +1,25 @@
 import React from 'react';
 import './App.css';
-import Header from './pages/Header/Header';
-import { BrowserRouter } from 'react-router-dom';
-
+import { Routes, Route, Link } from 'react-router-dom'
+import Contactpage from './pages/Contactpage';
+import Homepage from './pages/Homepage';
+import Singlepage from './pages/Singlepage';
+import Productspage from './pages/Productspage';
+import Layout from './components/Layout ';
 
 function App() {
   return (
-    <BrowserRouter>
-  <Routes>
-                <Route path='/' element={<Layout />}>
-                    <Route index element={<Homepage />} />
-                    <Route path="products" element={<Products />} />
-                </Route>
-            </Routes>
-    </BrowserRouter>
+    <>
+
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Homepage />} Route />
+          <Route path='productspage' element={<Productspage />} Route />
+          <Route path='singlepage' element={<Singlepage />} Route />
+          <Route path='contactpage' element={<Contactpage />} Route />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

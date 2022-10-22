@@ -26,3 +26,6 @@ img {
 .page-content {
     grid-area: page-content;
 }
+.active{
+    color: rgb(219, 20, 20);
+}
