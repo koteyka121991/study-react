@@ -1,19 +1,26 @@
 import React from 'react';
 import './App.css';
-import Header from './pages/Header/Header';
-import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom'
+import Contactpage from './pages/Contactpage';
+import Homepage from './pages/Homepage';
+import Single from './pages/Single';
+import Catalog from './pages/Catalog';
 
+import Header from './pages/Header';
 
 function App() {
   return (
-    <BrowserRouter>
-  <Routes>
-                <Route path='/' element={<Layout />}>
-                    <Route index element={<Homepage />} />
-                    <Route path="products" element={<Products />} />
-                </Route>
-            </Routes>
-    </BrowserRouter>
+    <>
+      <div className='wrapper'>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Homepage />} Route />
+          <Route path='catalog' element={<Catalog />} Route />
+          <Route path='products' element={<Single />} Route />
+          <Route path='contactpage' element={<Contactpage />} Route />
+        </Routes>
+      </div>
+    </>
   );
 }
 
