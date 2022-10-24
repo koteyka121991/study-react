@@ -1,5 +1,5 @@
 import React from 'react';
-const Singlepage =() => {
+const Single =() => {
     return (
       <>
       Тут контакты
@@ -7,4 +7,4 @@ const Singlepage =() => {
     )
     
     }
-    export default Singlepage;
+    export default Single;
