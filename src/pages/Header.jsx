@@ -12,8 +12,7 @@ return (
       <NavLink to='/'  end className={linkActive}><img src='https://www.585zolotoy.ru/_nuxt/img/585-logo.1ebf474.svg'></img></NavLink>
       </div>
       <div className='navigation'>
-    <NavLink to='catalog' className={linkActive}>Каталог</NavLink>
-    <NavLink to='products' className={linkActive}>Акции</NavLink>
+    <NavLink to='products' className={linkActive}>Каталог</NavLink>
     <NavLink to='contactpage' className={linkActive}>Магазин</NavLink>
     </div>
     
