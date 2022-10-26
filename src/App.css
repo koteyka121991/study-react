@@ -1,5 +1,6 @@
 body {
     font-family: 'Montserrat Alternates', sans-serif;
+    background: black;
 }
 
 img {
@@ -26,3 +27,4 @@ img {
 .page-content {
     grid-area: page-content;
 }
+

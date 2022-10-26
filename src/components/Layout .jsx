@@ -20,7 +20,7 @@ return (
     
     </div>
    </header>
-   <main><Outlet></Outlet></main>
+ 
    <footer>2022</footer>
   </>
 )
