@@ -2,7 +2,7 @@ import React from 'react';
 const Contactpage =() => {
     return (
       <>
-      Тут товары
+      Тут контакты
       </>
     )
     
