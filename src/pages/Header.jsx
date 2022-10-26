@@ -9,11 +9,12 @@ return (
 
     <div className='container'>
       <div className='logo'>
-      <NavLink to='/'  end className={linkActive}><img src='https://www.585zolotoy.ru/_nuxt/img/585-logo.1ebf474.svg'></img></NavLink>
+      <NavLink to='/'  end className={linkActive}><img src='https://png.pngtree.com/png-clipart/20200727/original/pngtree-fitness-badge-sport-logo-png-image_5393352.jpg'></img></NavLink>
       </div>
       <div className='navigation'>
-    <NavLink to='products' className={linkActive}>Каталог</NavLink>
-    <NavLink to='contactpage' className={linkActive}>Магазин</NavLink>
+    <NavLink to='diary' className={linkActive}>Дневник тренировок</NavLink>
+    <NavLink to='contactpage' className={linkActive}>Личные данные</NavLink>
+    <NavLink to='exercises' className={linkActive}>Упражнения</NavLink>
     </div>
     
     </div>
