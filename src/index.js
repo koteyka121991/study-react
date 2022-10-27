@@ -6,14 +6,27 @@ import reportWebVitals from './reportWebVitals';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+let list = [
+  { id: "workaut", label: "Дневник тренировок" },
+  { id: 'programs', label: "Программы тренировок" },
+  { id: 'catalog', label: "Каталог упражнений" },
+]
+let listCatalog = [
+  {label: "Грудь" },
+  { label: "Ноги" },
+  { label: "Руки" },
+]
+let listExercises = [
+  {label: "Жим" },
+  {label: "Присяд" },
+  {label: "Отжимаия" },
+]
 root.render(
   <React.StrictMode>
-    
-      <App />
+   
+      <App listCatalog={listCatalog} list={list} listExercises={listExercises} />
     
   </React.StrictMode>
-
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,37 +1,35 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
-import Contactpage from './pages/Contactpage';
-import Homepage from './pages/Homepage';
-
-import Singlepage from './pages/Singlepage';
-
 import { BrowserRouter } from 'react-router-dom';
 import Header from './pages/Header/Header';
 import Sidebar from './pages/Sidebar/Sidebar';
+import Programs from './pages/TrainingPrograms/Programs';
 import Diary from './pages/Diary/Diary';
+import Catalog from './pages/catalog/Catalog';
+import Row from './pages/Row/Row';
 
 
 function App(props) {
+
   return (
     <>
 
-<BrowserRouter>
-<div className='wrapper'>
-<Header />
-<Sidebar />
-
-      <Routes>      
-          <Route path= '/' element={<Homepage />} Route />
-          <Route path='workaut' element={<Diary />} Route />
-          <Route path='singlepage' element={<Singlepage />} Route />
-          <Route path='contactpage' element={<Contactpage />} Route />
-        
-      </Routes>
-      </div>
+      <BrowserRouter>
+        <div className='wrapper'>
+          <Header />
+     
+          <Sidebar list={props.list}/>
+<Row />
+          <Routes>           
+            <Route path='workaut' element={<Diary />} Route />
+            <Route path='programs' element={<Programs />} Route />
+            <Route path='catalog' element={<Catalog listCatalog ={props.listCatalog } listExercises ={props.listExercises } />} Route />
+          </Routes>
+        </div>
       </BrowserRouter>
-     </>
-  
+    </>
+
 
   );
 }

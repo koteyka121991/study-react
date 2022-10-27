@@ -2,11 +2,13 @@ import React from 'react';
 import Navigation from './Components/Navigation';
 import Style from './Sidebar.module.css'
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+
+    let navElements = props.list.map(el => <Navigation id={el.id} label={el.label}  />);
     return (
         <>
-            <div className={Style. navigation}>
-                <Navigation />
+            <div className={Style.navigation}>
+                {navElements}
             </div>
 
         </>
