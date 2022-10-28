@@ -3,28 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import State from './Redux/State';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let list = [
-  { id: "workaut", label: "Дневник тренировок" },
-  { id: 'programs', label: "Программы тренировок" },
-  { id: 'catalog', label: "Каталог упражнений" },
-]
-let listCatalog = [
-  {label: "Грудь" },
-  { label: "Ноги" },
-  { label: "Руки" },
-]
-let listExercises = [
-  {label: "Жим" },
-  {label: "Присяд" },
-  {label: "Отжимаия" },
-]
+
 root.render(
   <React.StrictMode>
    
-      <App listCatalog={listCatalog} list={list} listExercises={listExercises} />
+      <App state={State} />
     
   </React.StrictMode>
 );

@@ -1,9 +1,9 @@
-.container {
+
+
+.catalog {
     background: grey;
     max-width: 1000px;
-    height: 100%;
 }
-
-.list {
-    background: grey;
+ul {
+    display: block;
 }

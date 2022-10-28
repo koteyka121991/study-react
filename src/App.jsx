@@ -18,14 +18,17 @@ function App(props) {
       <BrowserRouter>
         <div className='wrapper'>
           <Header />
-     
-          <Sidebar list={props.list}/>
-<Row />
-          <Routes>           
-            <Route path='workaut' element={<Diary />} Route />
-            <Route path='programs' element={<Programs />} Route />
-            <Route path='catalog' element={<Catalog listCatalog ={props.listCatalog } listExercises ={props.listExercises } />} Route />
+          <Row />
+          <div className='container'>
+          <Sidebar list={props.state.sidebar} />
+         
+          <Routes>
+            <Route path='workaut' element={<Diary />}/>
+            <Route path='programs' element={<Programs />} />
+            <Route path='catalog' element={<Catalog State={props.state.catalogPage} />} />
           </Routes>
+          </div>
+          
         </div>
       </BrowserRouter>
     </>

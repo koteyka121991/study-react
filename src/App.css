@@ -8,23 +8,17 @@ img {
 }
 
 .wrapper {
-    display: grid;
-    grid-template-areas: "header" "page-content" "footer";
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr;
-    height: 100vh;
+    max-width: 1200px;
     margin: 0 auto;
-    grid-gap: 10px;
+ 
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+
     display: flex;
-    justify-content: space-between;
+   
 }
 
-.page-content {
-    grid-area: page-content;
-}
+
+
 

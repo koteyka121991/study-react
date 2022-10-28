@@ -4,11 +4,12 @@ import Style from './Catalog.module.css'
 import Exercises from './Components/Exercises';
 const Catalog = (props) => {
 
-    let navElements = props.listCatalog.map(el => <Navigation label={el.label}  />);
-    let exercisesElements = props.listExercises.map(el => <Exercises label={el.label}  />);
+    let navElements = props.State.listCatalog.map(el => <Navigation label={el.label}  />);
+    let exercisesElements = props.State.listExercises.map(el => <Exercises label={el.label}  />);
     return (
         <>
-            <div className={Style.list}>
+            <div className={Style.catalog}>
+                
                 {navElements}
                 <ul>
                 {exercisesElements}
