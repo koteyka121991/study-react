@@ -1,14 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-
-
-const Programs = (props) => {
-   
-  
-    return (
-        <>         
-     
-=======
 import Style from './Programs.module.css';
 function NumberList(props) {
     return (
