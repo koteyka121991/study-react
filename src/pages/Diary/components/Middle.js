@@ -2,8 +2,14 @@ import React from 'react';
 import Style from './Middle.module.css'
 
 const Middle = (props) => {
-    let changeDiaryButton= () => {alert('hi')} 
-    let addTestText =React.createRef();
+    let newWeightElement = React.createRef();
+
+    let addWeight = () => {
+        debugger;
+        let text = newWeightElement.current.value;
+        props.addWeight(text);
+    }
+
     return (
         <>
             <div className='midle'>
@@ -17,18 +23,18 @@ const Middle = (props) => {
                         <div className={Style.workoutSet}>
                             <div className={Style.sets}>
                                 <div className='left'>
-                                    <div className='weight' onClick= {changeDiaryButton}>{props.weight}</div>
+                                    <div className='weight' >{props.weight}</div>
                                     <div className='reps'>{props.reps}</div>
+                                    <textarea ref={newWeightElement}></textarea>
                                 </div>
                                 <div className='right'>
                                     <div className='approaches'>{props.approaches}</div>
                                 </div>
-                              <textarea>{addTestText}</textarea>
                                 <button  >+</button>
                             </div>
                             <div>
-                            
-      </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -4,13 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import State from './Redux/State';
+import {addWeight}  from './Redux/State';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
    
-      <App state={State} />
+      <App state={State} addWeight={addWeight} />
     
   </React.StrictMode>
 );

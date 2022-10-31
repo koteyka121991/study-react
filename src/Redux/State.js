@@ -1,4 +1,5 @@
 
+
 let State = {
     catalogPage: {
         listCatalog: [
@@ -31,6 +32,13 @@ let State = {
     }
 
 
-
+export let addWeight = (setWeight) => {
+    
+    let newWorkoutSet = {
+        weight:setWeight       
+       
+    }
+    State.diary.workoutSet.push(newWorkoutSet);
+};
 
 export default State;
