@@ -3,11 +3,14 @@ import React from 'react';
 
 
 const Navigation = (props) => {
-
+  
+   
     return (
         <>
-            <span onClick={()=>(alert('HI'))}>{props.label}</span>
-           
+            <div key={props.id}>
+                <h2>{props.label}</h2>
+                <ul></ul>
+            </div>
         </>
     )
 
