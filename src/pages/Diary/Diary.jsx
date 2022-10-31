@@ -1,38 +1,25 @@
 import React from 'react';
+import Left from './components/Left';
+import Middle from './components/Middle';
 import Style from './Diary.module.css'
-const Diary = () => {
+
+const Diary = (props) => {
+    let leftElements = props.State.diaryData.map(el => <Left data={el.data} />);
+    let middleElements = props.State.workoutSet.map(el => <Middle weight={el.weight} reps={el.reps} approaches={el.approaches} />);
     return (
         <>
-            <div className={Style.container}>
-                <table>
-                    <tr>
-                        <td>
-                            <div className='date'>28 октября</div>
-                        </td>
-                        <td>
-                            <div>
-                                <table>
-                                    <tr>
-                                        <td>Точок с груди с паузой
-                                        </td>
-                                        <td>
-                                            <div><div>22</div><div>2</div></div>
-                                        </td>
-                                        <td>
-                                            <div>2</div>
-                                        </td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </td>
-                        <td>
+            <ul className={Style.diaryList}>
+                <li>
+                    <div className={Style.diaryTable}>
+                        {leftElements}
+                        {middleElements}
+                        <div className='right'>
                             <button>Изменить</button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
+                        </div>
+                    </div>
+                </li>
+            
+            </ul>
         </>
     )
 

@@ -21,12 +21,13 @@ function App(props) {
           <Row />
           <div className='container'>
           <Sidebar list={props.state.sidebar} />
-         
+         <section className='content'>
           <Routes>
-            <Route path='workaut' element={<Diary />}/>
+            <Route path='workaut' element={<Diary State={props.state.diary}/>}/>
             <Route path='programs' element={<Programs />} />
             <Route path='catalog' element={<Catalog State={props.state.catalogPage} />} />
           </Routes>
+          </section>
           </div>
           
         </div>

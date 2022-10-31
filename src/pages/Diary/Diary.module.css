@@ -3,3 +3,16 @@
     max-width: 1000px;
     height: 100%;
 }
+.diaryList {
+    display: block;
+}
+.diaryTable {
+    display: flex;
+    justify-content: space-between;
+}
+.workoutSet {
+    display: block;
+}
+a {
+    color: black;
+}

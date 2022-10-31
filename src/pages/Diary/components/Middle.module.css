@@ -1,0 +1,7 @@
+.diaryItems {
+    display: flex;
+}
+.sets {
+    display: flex;
+    align-items:center
+}

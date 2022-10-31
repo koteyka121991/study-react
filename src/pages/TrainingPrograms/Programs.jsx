@@ -1,16 +1,12 @@
 import React from 'react';
-import Style from './Programs.module.css';
 
-const Programs = () => {
+
+const Programs = (props) => {
+   
+  
     return (
-        <>
-            <div className={Style.container}>
-                программы тренировок
-                программы тренировок
-                программы тренировок
-                программы тренировок
-            </div>
-
+        <>         
+     
         </>
     )
 
