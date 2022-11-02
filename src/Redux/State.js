@@ -21,25 +21,43 @@ let State = {
     ],
 
     diary: {
+        exerciseNameDate: [
+            { id: 1, exercise: "Присяд" }
+        ],
         diaryDate: [
             { id: 1, date: "29 суббота" }
         ],
-        workoutWeight: [
-            { id: 1,weight: 22}
+        workoutDate: [
+            { id: 1, weight: 22, reps: 3 }
+        ],
+        newWeightText: "hello word",
+        workoutApproaches: [
+            { id: 1, approaches: 3 }
         ]
 
     }
 }
-
-
-export let addWeight= (diaryWeight) => {
-
-    let newWeight ={
-        id:2,
-        weight:diaryWeight
+window.state=State;
+export let addWeight = () => {
+    let newWeight = {
+        id: 2,
+        weight: State.diary.newWeightText
     };
-    State.diary.workoutWeight.push(newWeight);
+    State.diary.workoutDate.push(newWeight);
+    State.diary.newWeightText="";
     rerenderEnterTree(State);
 }
+export let addReps = (repsDate) => {
+    let newReps = {
+        reps: repsDate
+    };
+    State.diary.workoutDate.push(newReps);
+    rerenderEnterTree(State);
+}
+export let updateNewWeightText = (newText) => {
+    State.diary.newWeightText = newText;
+    rerenderEnterTree(State);
+}
+
 
 export default State;

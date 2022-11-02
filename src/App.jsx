@@ -16,15 +16,19 @@ function App(props) {
       <BrowserRouter>
         <div className='wrapper'>
           <Header />
-          <Row />          
+          <Row />
           <div className='container'>
             <Sidebar list={props.state.sidebar} />
             <section className='content'>
-           
               <Routes>
-                <Route path='workaut' element={<Diary State={props.state.diary} addWeight={props.addWeight}/> } />
+                <Route path='workaut' element={<Diary diary=
+                  {props.state.diary} addWeight={props.addWeight}
+                  addReps={props.addReps} updateNewWeightText={props.updateNewWeightText}
+                    />
+                } />
                 <Route path='programs' element={<Programs />} />
-                <Route path='catalog' element={<Catalog State={props.state.catalogPage} />} />
+                <Route path='catalog' element={<Catalog State=
+                  {props.state.catalogPage} />} />
               </Routes>
             </section>
           </div>
