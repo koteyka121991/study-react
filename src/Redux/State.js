@@ -1,4 +1,6 @@
-import { rerenderEnterTree } from "../render";
+let rerenderEnterTree =() => {
+    console.log('hi');
+}
 
 
 let State = {
@@ -57,7 +59,10 @@ export let addReps = (repsDate) => {
 export let updateNewWeightText = (newText) => {
     State.diary.newWeightText = newText;
     rerenderEnterTree(State);
-}
+} 
+export const subscribe =(observer) => {
+    rerenderEnterTree = observer;
+} 
 
 
 export default State;
