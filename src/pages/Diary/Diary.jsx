@@ -14,7 +14,8 @@ const Diary = (props) => {
     let newWeightText = props.diary.newWeightText;
     let updateNewWeightText=props.diary.updateNewWeightText;
     let newElement = React.createRef();
-    let addWeight = () => {      
+    let addWeight = () => {  
+          
         props.addWeight();      
     }   
     let newElementReps = React.createRef();

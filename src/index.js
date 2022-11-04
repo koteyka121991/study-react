@@ -1,19 +1,18 @@
-import State, { subscribe } from './Redux/State';
+import store from './Redux/State';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {addWeight, addReps, updateNewWeightText} from './Redux/State';
 
 
 
-let rerenderEnterTree =(State) => {
+let rerenderEnterTree =(state) => {
   const root = ReactDOM.createRoot(document.getElementById('root'));
 
   root.render(
     <React.StrictMode>     
-        <App state={State} addWeight={addWeight} addReps={addReps} updateNewWeightText={updateNewWeightText}/>      
+        <App state={state} addWeight={store.addWeight.bind(store)} addReps={store.addReps.bind(store)} updateNewWeightText={store.updateNewWeightText.bind(store)}/>      
     </React.StrictMode>
   );
 }
@@ -24,6 +23,6 @@ let rerenderEnterTree =(State) => {
 reportWebVitals();
 
 
-rerenderEnterTree(State);
+rerenderEnterTree(store.getState());
 
-subscribe (rerenderEnterTree);
+store.subscribe (rerenderEnterTree);
