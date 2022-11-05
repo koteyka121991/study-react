@@ -11,43 +11,33 @@ const Diary = (props) => {
     let middleElements = props.diary.workoutDate.map(el => <Middle weight={el.weight} reps={el.reps} />);
     let exerciseNameElements = props.diary.exerciseNameDate.map(el => <ExerciseName id={el.id} exercise={el.exercise} />);
     let approachesElements = props.diary.workoutApproaches.map(el => <Approaches id={el.id} approaches={el.approaches} />);
-   
-let newElement = React.createRef();
-let addWeight = () => {
-    debugger;
-    props.dispatch(addWeightActonCreator());
-}
-let newElementReps = React.createRef();
-let addReps = () => {
-    let text = newElementReps.current.value;
-    props.addReps(text);
-}
-let onWeightChange = () => {
-    debugger;
-    let text = newElement.current.value;
-    let action = updateNewWeightTextActonCreator(text);
-    props.dispatch(action);
-}
-return (
-    <>
-        <ul className={Style.diaryList}>
-            <li>
-                <div className={Style.diaryTable}>
-                    {leftElements}
-                    {exerciseNameElements}
-                    {middleElements}
-                    <textarea onChange={onWeightChange} ref={newElement} value={props.newWeightText} />
-                    <textarea ref={newElementReps}></textarea>
-                    {approachesElements}
-                    <div className='right'>
-                        <button onClick={addWeight}>Изменить</button>
-                        <button onClick={addReps}>Изменить</button>
+    let newElement = React.createRef();
+    let addWeight = () => {
+        props.dispatch(addWeightActonCreator());
+    }
+    let onWeightChange = () => {
+        let text = newElement.current.value;
+        let action = updateNewWeightTextActonCreator(text);
+        props.dispatch(action);
+    }
+    return (
+        <>
+            <ul className={Style.diaryList}>
+                <li>
+                    <div className={Style.diaryTable}>
+                        {leftElements}
+                        {exerciseNameElements}
+                        {middleElements}
+                        <textarea onChange={onWeightChange} ref={newElement} value={props.diary.newWeightText} />
+                        {approachesElements}
+                        <div className='right'>
+                            <button onClick={addWeight}>Изменить</button>
+                        </div>
                     </div>
-                </div>
-            </li>
-        </ul>
-    </>
-)
+                </li>
+            </ul>
+        </>
+    )
 }
 
 export default Diary;

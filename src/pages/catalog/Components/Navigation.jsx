@@ -8,8 +8,7 @@ const Navigation = (props) => {
     return (
         <>
             <div key={props.id}>
-                <h2>{props.label}</h2>
-                <ul></ul>
+                <h2>{props.label}</h2>               
             </div>
         </>
     )

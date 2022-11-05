@@ -1,5 +1,7 @@
 const ADD_WEIGHT = 'ADD-WEIGHT';
 const UPDATE_NEW_WEIGHT_TEXT = 'UPDATE-NEW-WEIGHT-TEXT';
+const UPDATE_NEW_EXERCISES_TEXT = 'UPDATE-NEW-EXERCISES-TEXT';
+const ADD_EXERCISES = 'ADD_EXERCISES';
 let store = {
     _state: {
         catalogPage: {
@@ -8,10 +10,11 @@ let store = {
                 { id: 2, label: "Ноги" }
             ],
             listExercises: [
-                { label: "Жим" },
-                { label: "Брусья" },
-                { label: "Отжимаия" }
-            ]
+                {id:1, label: "Жим" },
+                {id:2, label: "Брусья" },
+                {id:3, label: "Отжимаия" }
+            ],
+            newExercisesText: ""
         },
 
         sidebar: [
@@ -69,15 +72,29 @@ let store = {
         } else if (action.type === 'UPDATE-NEW-WEIGHT-TEXT') {
             this._state.diary.newWeightText = action.newText;
             this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_NEW_EXERCISES_TEXT) {
+            this._state.catalogPage.newExercisesText = action.text;
+            this._callSubscriber(this._state);
+        } else if (action.type === ADD_EXERCISES) {
+            let text = this._state.catalogPage.newExercisesText;
+            this._state.catalogPage.newExercisesText= '';
+            this._state.catalogPage.listExercises.push({id:5, label: text },);
+            this._callSubscriber(this._state);
         }
     }
 
 }
-export const addWeightActonCreator = () => ({  
-        type: ADD_WEIGHT    
+export const addWeightActonCreator = () => ({
+    type: ADD_WEIGHT
 })
-export const updateNewWeightTextActonCreator = (text) => ({    
-        type: UPDATE_NEW_WEIGHT_TEXT, newText: text    
+export const updateNewWeightTextActonCreator = (text) => ({
+    type: UPDATE_NEW_WEIGHT_TEXT, newText: text
+})
+export const addExercisesCreator = () => ({
+    type: ADD_EXERCISES
+})
+export const updateNewExercisesTextCreator = (text) => ({
+    type: UPDATE_NEW_EXERCISES_TEXT, text: text
 })
 
 window.state = store;

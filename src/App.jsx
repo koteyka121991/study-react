@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
-import { BrowserRouter } from 'react-router-dom';
+
 import Header from './pages/Header/Header';
 import Sidebar from './pages/Sidebar/Sidebar';
 import Programs from './pages/TrainingPrograms/Programs';
@@ -13,7 +13,7 @@ import Row from './pages/Row/Row';
 function App(props) {
   return (
     <>
-      <BrowserRouter>
+
         <div className='wrapper'>
           <Header />
           <Row />
@@ -23,17 +23,16 @@ function App(props) {
               <Routes>
                 <Route path='workaut' element={<Diary diary=
                   {props.state.diary} dispatch={props.dispatch}
-                  addReps={props.addReps}
+                  
                     />
                 } />
                 <Route path='programs' element={<Programs />} />
-                <Route path='catalog' element={<Catalog State=
-                  {props.state.catalogPage} />} />
+                <Route path='catalog' element={<Catalog store={props.store}  />} />
               </Routes>
             </section>
           </div>
         </div>
-      </BrowserRouter>
+      
     </>
 
 
