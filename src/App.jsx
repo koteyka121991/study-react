@@ -22,8 +22,8 @@ function App(props) {
             <section className='content'>
               <Routes>
                 <Route path='workaut' element={<Diary diary=
-                  {props.state.diary} addWeight={props.addWeight}
-                  addReps={props.addReps} updateNewWeightText={props.updateNewWeightText}
+                  {props.state.diary} dispatch={props.dispatch}
+                  addReps={props.addReps}
                     />
                 } />
                 <Route path='programs' element={<Programs />} />

@@ -1,3 +1,5 @@
+const ADD_WEIGHT = 'ADD-WEIGHT';
+const UPDATE_NEW_WEIGHT_TEXT = 'UPDATE-NEW-WEIGHT-TEXT';
 let store = {
     _state: {
         catalogPage: {
@@ -35,23 +37,17 @@ let store = {
 
         }
     },
-    getState() {
-     
-        return this._state;
-    },
     _callSubscriber() {
         console.log('hi');
     },
-    addWeight() {
-      
-        let newWeight = {
-            id: 2,
-            weight: this._state.diary.newWeightText
-        };
-        this._state.diary.workoutDate.push(newWeight);
-        this._state.diary.newWeightText = "";
-        this._callSubscriber(this._state);
+    getState() {
+
+        return this._state;
     },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
     addReps(repsDate) {
         let newReps = {
             reps: repsDate
@@ -59,14 +55,30 @@ let store = {
         this._state.diary.workoutDate.push(newReps);
         this._callSubscriber(this._state);
     },
-    updateNewWeightText(newText) {
-        this._state.diary.newWeightText = newText;
-        this._callSubscriber(this._state);
-    },
-    subscribe(observer) {
-        this._callSubscriber = observer;
+
+    dispatch(action) {
+
+        if (action.type === ' ADD-WEIGHT') {
+            let newWeight = {
+                id: 2,
+                weight: this._state.diary.newWeightText
+            };
+            this._state.diary.workoutDate.push(newWeight);
+            this._state.diary.newWeightText = "";
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-WEIGHT-TEXT') {
+            this._state.diary.newWeightText = action.newText;
+            this._callSubscriber(this._state);
+        }
     }
+
 }
+export const addWeightActonCreator = () => ({  
+        type: ADD_WEIGHT    
+})
+export const updateNewWeightTextActonCreator = (text) => ({    
+        type: UPDATE_NEW_WEIGHT_TEXT, newText: text    
+})
 
 window.state = store;
 

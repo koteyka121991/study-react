@@ -12,7 +12,7 @@ let rerenderEnterTree =(state) => {
 
   root.render(
     <React.StrictMode>     
-        <App state={state} addWeight={store.addWeight.bind(store)} addReps={store.addReps.bind(store)} updateNewWeightText={store.updateNewWeightText.bind(store)}/>      
+        <App state={state} dispatch={store.dispatch.bind(store)} addReps={store.addReps.bind(store)} />      
     </React.StrictMode>
   );
 }
