@@ -13,26 +13,22 @@ import Row from './pages/Row/Row';
 function App(props) {
   return (
     <>
-
-        <div className='wrapper'>
-          <Header />
-          <Row />
-          <div className='container'>
-            <Sidebar list={props.state.sidebar} />
-            <section className='content'>
-              <Routes>
-                <Route path='workaut' element={<Diary diary=
-                  {props.state.diary} dispatch={props.dispatch}
-                  
-                    />
-                } />
-                <Route path='programs' element={<Programs />} />
-                <Route path='catalog' element={<Catalog store={props.store}  />} />
-              </Routes>
-            </section>
-          </div>
+      <div className='wrapper'>
+        <Header />
+        <Row />
+        <div className='container'>
+          <Sidebar list={props.state.sidebar} />
+          <section className='content'>
+            <Routes>
+              <Route path='workaut' element={<Diary store={props.store}/>
+              } />
+              <Route path='programs' element={<Programs />} />
+              <Route path='catalog' element={<Catalog store={props.store} />} />
+            </Routes>
+          </section>
         </div>
-      
+      </div>
+
     </>
 
 

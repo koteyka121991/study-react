@@ -15,7 +15,7 @@ let rerenderEnterTree =(state) => {
     
     <React.StrictMode>    
       <BrowserRouter>
-        <App state={state} store={store} dispatch={store.dispatch.bind(store)} addReps={store.addReps.bind(store)} />      
+        <App state={state} store={store} dispatch={store.dispatch.bind(store)} />      
         </BrowserRouter>
     </React.StrictMode>
     
