@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from './Components/Navigation';
 import Exercises from './Components/Exercises'
-import { addBodyPartCreator, addExercisesCreator, updateBodyPartTextCreator, updateNewExercisesTextCreator } from '../../Redux/State';
+import { addBodyPartCreator, addExercisesCreator, updateBodyPartTextCreator, updateNewExercisesTextCreator } from '../../Redux/Catalog-reduser';
 
 const Catalog = (props) => {
   
@@ -31,7 +31,7 @@ const Catalog = (props) => {
                 <div><textarea onChange={onNewTextChageBodyPart} value={newBodyPartText} placeholder='text of the exercise'></textarea></div>
                 <div><button onClick={onSendTextbodyPart}>send</button></div>
             </div>
-            <div>{exercisesElements}</div>
+            <ul>{exercisesElements}</ul>
             <div>
                 <div><textarea onChange={onNewtextChage} value={newExercisesText} placeholder='0'></textarea></div>
                 <div><button onClick={onSendTextExercises}>send</button></div>

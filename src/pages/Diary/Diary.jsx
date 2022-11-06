@@ -1,5 +1,5 @@
 import React from 'react';
-import { addWeightCreator, updateNewWeightTextCreator } from '../../Redux/State';
+import { addWeightCreator, updateNewWeightTextCreator } from '../../Redux/Diary-reduser';
 import Approaches from './components/Approaches';
 import ExerciseName from './components/ExerciseName';
 import Left from './components/Left';
