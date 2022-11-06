@@ -5,7 +5,7 @@ import { addBodyPartCreator, addExercisesCreator, updateBodyPartTextCreator, upd
 
 const Catalog = (props) => {
   
-    let state = props.store.getState().catalogPage;    
+    let state = props.store.getState().catalog;    
     let navElements = state.bodyPart.map(el => <Navigation label={el.label} id={el.id} />);
     let exercisesElements = state.listExercises.map(el => <Exercises label={el.label} />);
     let newExercisesText = state.newExercisesText;

@@ -17,7 +17,7 @@ function App(props) {
         <Header />
         <Row />
         <div className='container'>
-          <Sidebar list={props.state.sidebar} />
+          <Sidebar store={props.store} />
           <section className='content'>
             <Routes>
               <Route path='workaut' element={<Diary store={props.store}/>

@@ -7,7 +7,7 @@ const Navigation = (props) => {
    
     return (
         <>
-            <div key={props.id}>
+            <div >
                 <h2>{props.label}</h2>               
             </div>
         </>

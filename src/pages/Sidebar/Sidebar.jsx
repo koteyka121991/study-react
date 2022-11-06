@@ -3,8 +3,9 @@ import Navigation from './Components/Navigation';
 import Style from './Sidebar.module.css'
 
 const Sidebar = (props) => {
-
-    let navElements = props.list.map(el => <Navigation id={el.id} label={el.label}  />);
+  
+let state = props.store.getState().sidebar;
+    let navElements = state.sidebar.map(el => <Navigation id={el.id} label={el.label}  />);
     return (
         <>
             <div className={Style.navigation}>

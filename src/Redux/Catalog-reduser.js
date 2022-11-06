@@ -2,7 +2,20 @@ const UPDATE_NEW_EXERCISES_TEXT = 'UPDATE-NEW-EXERCISES-TEXT';
 const ADD_EXERCISES = 'ADD_EXERCISES';
 const UPDATE_NEW_BODY_PART_TEXT = 'UPDATE-NEW-BODY-PART-TEXT';
 const ADD_BODY_PART = 'ADD-BODY-PART';
-const catalogReduser = (state, action) => {
+let initialState = {
+    bodyPart: [
+        { id: 1, label: "Грудь" },
+        { id: 2, label: "Ноги" }
+    ],
+    newBodyPartText: "",
+    listExercises: [
+        { id: 1, label: "Жим" },
+        { id: 2, label: "Брусья" },
+        { id: 3, label: "Отжимаия" }
+    ],
+    newExercisesText: ""
+}
+const catalogReduser = (state=initialState, action) => {   
     switch (action.type) {
         case UPDATE_NEW_EXERCISES_TEXT:
             state.newExercisesText = action.text;
