@@ -15,10 +15,11 @@ function App(props) {
   return (
     <>
       <div className='wrapper'>
+          
         <Header />
         <Row />
         <div className='container'>
-          <Sidebar store={props.store} />
+          {/* <Sidebar store={props.store} /> */}
           <section className='content'>
             <Routes>
               <Route path='workaut' element={<Diary store={props.store}/>

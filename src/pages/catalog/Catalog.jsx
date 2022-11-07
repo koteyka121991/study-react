@@ -4,7 +4,7 @@ import Exercises from './Components/Exercises'
 
 
 const Catalog = (props) => {
-  
+  debugger;
     let state = props.catalog;    
     let navElements = state.bodyPart.map(el => <Navigation label={el.label} id={el.id} />);
     let exercisesElements = state.listExercises.map(el => <Exercises label={el.label} />);
