@@ -8,6 +8,7 @@ import Programs from './pages/TrainingPrograms/Programs';
 import Diary from './pages/Diary/Diary';
 import Catalog from './pages/catalog/Catalog';
 import Row from './pages/Row/Row';
+import CatalogContainer from './pages/catalog/CatalogContainer';
 
 
 function App(props) {
@@ -23,7 +24,7 @@ function App(props) {
               <Route path='workaut' element={<Diary store={props.store}/>
               } />
               <Route path='programs' element={<Programs />} />
-              <Route path='catalog' element={<Catalog store={props.store} />} />
+              <Route path='catalog' element={<CatalogContainer store={props.store} />} />
             </Routes>
           </section>
         </div>
