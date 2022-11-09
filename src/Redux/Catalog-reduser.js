@@ -16,23 +16,33 @@ let initialState = {
     newExercisesText: ""
 }
 const catalogReduser = (state=initialState, action) => {   
+   
+
     switch (action.type) {
         case UPDATE_NEW_EXERCISES_TEXT:
-            state.newExercisesText = action.text;
-            return state;
+            return {...state,
+                newExercisesText: action.text    
+            };            
+            
         case ADD_EXERCISES:
             let textExercises = state.newExercisesText;
-            state.newExercisesText = '';
-            state.listExercises.push({ id: 5, label: textExercises },);
-            return state;
+          return {...state,  
+                newExercisesText: '',
+                listExercises: [...state.listExercises, { id: 5, label: textExercises }]
+            };            
+           
         case UPDATE_NEW_BODY_PART_TEXT:
-            state.newBodyPartText = action.text;
-            return state;
+            return {...state,   
+                newBodyPartText:action.text 
+            };           
+           
         case ADD_BODY_PART:
             let textBodyPart = state.newBodyPartText;
-            state.newBodyPartText = '';
-            state.bodyPart.push({ id: 3, label: textBodyPart },);
-            return state;
+           return  {...state,
+                newBodyPartText:'',    
+                bodyPart: [...state.bodyPart,{ id: 3, label: textBodyPart }]
+            };   
+            
         default:
             return state;
 

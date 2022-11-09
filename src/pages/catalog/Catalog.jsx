@@ -4,10 +4,10 @@ import Exercises from './Components/Exercises'
 
 
 const Catalog = (props) => {
-  debugger;
+
     let state = props.catalog;    
-    let navElements = state.bodyPart.map(el => <Navigation label={el.label} id={el.id} />);
-    let exercisesElements = state.listExercises.map(el => <Exercises label={el.label} />);
+    let navElements = state.bodyPart.map(el => <Navigation key={el.id} label={el.label} id={el.id} />);
+    let exercisesElements = state.listExercises.map(el => <Exercises key={el.id} label={el.label} id={el.id} />);
     let newExercisesText = state.newExercisesText;
     let newBodyPartText= state.newBodyPartText;
     let onSendTextExercises = () => {
@@ -26,6 +26,7 @@ const Catalog = (props) => {
     }
     return (
         <>
+        
            <div>{navElements}</div> 
            <div>
                 <div><textarea onChange={onNewTextChageBodyPart} value={newBodyPartText} placeholder='text of the exercise'></textarea></div>

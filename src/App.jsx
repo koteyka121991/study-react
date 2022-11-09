@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
-import { Routes, Route } from 'react-router-dom'
-
+import { Routes, Route } from 'react-router-dom';
 import Header from './pages/Header/Header';
-import Sidebar from './pages/Sidebar/Sidebar';
 import Programs from './pages/TrainingPrograms/Programs';
-import Diary from './pages/Diary/Diary';
-import Catalog from './pages/catalog/Catalog';
 import Row from './pages/Row/Row';
 import CatalogContainer from './pages/catalog/CatalogContainer';
+import DiaryContainer from './pages/Diary/DiaryContainer';
+import SidebarContainer from './pages/Sidebar/SidebarContainer';
 
 
 function App(props) {
@@ -19,13 +17,13 @@ function App(props) {
         <Header />
         <Row />
         <div className='container'>
-          {/* <Sidebar store={props.store} /> */}
+          <SidebarContainer />
           <section className='content'>
             <Routes>
-              <Route path='workaut' element={<Diary store={props.store}/>
+              <Route path='workaut' element={<DiaryContainer/>
               } />
               <Route path='programs' element={<Programs />} />
-              <Route path='catalog' element={<CatalogContainer store={props.store} />} />
+              <Route path='catalog' element={<CatalogContainer/>} />
             </Routes>
           </section>
         </div>

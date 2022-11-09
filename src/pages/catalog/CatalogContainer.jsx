@@ -4,26 +4,26 @@ import { addBodyPartCreator, addExercisesCreator, updateBodyPartTextCreator, upd
 import Catalog from './Catalog';
 
 
-let mapStateToProps =(state) => {
-return {
-    CatalogContainer:state.catalog
-}
-}
-let mapDispatchToProps =(dispatch) => {
+let mapStateToProps = (state) => {
     return {
-        addExercises : () => {
+        catalog: state.catalog
+    }
+}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addExercises: () => {
             dispatch(addExercisesCreator())
         },
-        updateNewExercisesText : (text) => {
+        updateNewExercisesText: (text) => {
             dispatch(updateNewExercisesTextCreator(text))
-        },        
-        addBodyPart : () => {
+        },
+        addBodyPart: () => {
             dispatch(addBodyPartCreator())
         },
-        updateBodyPartText : (text) => {
+        updateBodyPartText: (text) => {
             dispatch(updateBodyPartTextCreator(text))
         }
-    } 
+    }
 }
-const CatalogContainer = connect(mapStateToProps, mapDispatchToProps) (Catalog);
+const CatalogContainer = connect(mapStateToProps, mapDispatchToProps)(Catalog);
 export default CatalogContainer;
