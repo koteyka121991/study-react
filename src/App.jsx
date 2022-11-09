@@ -7,23 +7,25 @@ import Row from './pages/Row/Row';
 import CatalogContainer from './pages/catalog/CatalogContainer';
 import DiaryContainer from './pages/Diary/DiaryContainer';
 import SidebarContainer from './pages/Sidebar/SidebarContainer';
+import UsersContainer from './pages/Users/UsersContainer';
 
 
 function App(props) {
   return (
     <>
       <div className='wrapper'>
-          
+
         <Header />
         <Row />
         <div className='container'>
           <SidebarContainer />
           <section className='content'>
             <Routes>
-              <Route path='workaut' element={<DiaryContainer/>
+              <Route path='workaut' element={<DiaryContainer />
               } />
               <Route path='programs' element={<Programs />} />
-              <Route path='catalog' element={<CatalogContainer/>} />
+              <Route path='catalog' element={<CatalogContainer />} />
+              <Route path='users' element={<UsersContainer/> }/>
             </Routes>
           </section>
         </div>

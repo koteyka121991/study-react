@@ -6,7 +6,7 @@ import Catalog from './Catalog';
 
 let mapStateToProps = (state) => {
     return {
-        catalog: state.catalog
+        catalogPage: state.catalogPage
     }
 }
 let mapDispatchToProps = (dispatch) => {
