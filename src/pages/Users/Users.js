@@ -1,10 +1,24 @@
 import React from 'react';
 import Styles from './User.module.css';
+import axios from "axios";
+import userPhoto from './../../assets/imgs/users-vector-icon-png_260862.jpg';
+
 let Users = (props) => {
+    
+if(props.users.length===0) {
+   
+   axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response=>{
+  
+    props.setUsers(response.data.items);
+   });
+}
+
+
+
     return (
         <>
-            {props.usersPage.map(u => <div key={u.id}>
-                <div className={Styles.img}><img src={u.userImg}></img></div>
+            {props.users.map(u => <div key={u.id}>
+                <div className={Styles.img}><img src={u.photos.small !=null ? u.photos.small : userPhoto}></img></div>
                 <div>{u.name}</div>
                 <div>{u.status}</div>
                 <div>{u.city}</div>
