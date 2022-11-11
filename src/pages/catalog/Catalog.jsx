@@ -4,6 +4,7 @@ import Exercises from './Components/Exercises'
 
 
 const Catalog = (props) => {
+    
     let state = props.catalogPage;    
     let navElements = state.bodyPart.map(el => <Navigation key={el.id} label={el.label} id={el.id} />);
     let exercisesElements = state.listExercises.map(el => <Exercises key={el.id} label={el.label} id={el.id} />);
@@ -25,16 +26,17 @@ const Catalog = (props) => {
     }
     return (
         <>
-        
+        <div>
            <div>{navElements}</div> 
            <div>
                 <div><textarea onChange={onNewTextChageBodyPart} value={newBodyPartText} placeholder='text of the exercise'></textarea></div>
                 <div><button onClick={onSendTextbodyPart}>send</button></div>
             </div>
-            <ul>{exercisesElements}</ul>
+            <div>{exercisesElements}</div>
             <div>
                 <div><textarea onChange={onNewTextChage} value={newExercisesText} placeholder='0'></textarea></div>
                 <div><button onClick={onSendTextExercises}>send</button></div>
+            </div>
             </div>
         </>
     )

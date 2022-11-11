@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Exercises = (props) => {   
+const Exercises = (props) => {
     return (
-        <>
-            <li>{props.label}</li>
+        <>            
+                <a href='#'>{props.label}</a>
+           
         </>
     )
 }
-export default Exercises ;
+export default Exercises;

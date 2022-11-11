@@ -15,8 +15,7 @@ let initialState = {
     ],
     newExercisesText: ""
 }
-const catalogReduser = (state=initialState, action) => {   
-   
+const catalogReduser = (state=initialState, action) => {      
 
     switch (action.type) {
         case UPDATE_NEW_EXERCISES_TEXT:
@@ -45,9 +44,7 @@ const catalogReduser = (state=initialState, action) => {
             
         default:
             return state;
-
-    }
-   
+    }   
 }
 export const addExercisesCreator = () => ({
     type: ADD_EXERCISES

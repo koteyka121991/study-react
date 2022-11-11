@@ -9,6 +9,7 @@ let redusers = combineReducers(
         diary:diaryReduser,
         sidebar:sidebarReduser,
         usersPage:usersReduser
+       
     }
 );
 
