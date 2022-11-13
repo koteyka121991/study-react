@@ -1,13 +1,13 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
+const SET_TOTAL_USERS_COUNT ='SET_TOTAL_USERS_COUNT';
 let initialState = {
-    users: [
-        // { id: 1, userImg: "https://sun7-6.userapi.com/s/v1/ig2/Vaj-A5kx1xpLB75bys_fpiUKZ5C3g-yNrsotFy7zNIu00ORpsNItZG-NJhFdgC2XkbNq5vrVs4m6m23CwqZcuLTq.jpg?size=50x50&quality=95&crop=129,987,1539,1539&ava=1",
-        //  followed: false, name: "Мария", status: "On-line ", city: "Волжский", age: 27 },
-        // { id: 2, userImg: "https://sun7-6.userapi.com/s/v1/ig2/Vaj-A5kx1xpLB75bys_fpiUKZ5C3g-yNrsotFy7zNIu00ORpsNItZG-NJhFdgC2XkbNq5vrVs4m6m23CwqZcuLTq.jpg?size=50x50&quality=95&crop=129,987,1539,1539&ava=1",
-        //     followed: false, name: "Олег", status: "Of-line ", city: "Волжский", age: 30 }
-    ]
+    users: [],
+    pageSize: 10,
+    totalUsersCount:0,
+    currentPage: 1
 }
 const usersReduser = (state = initialState, action) => {
 
@@ -32,10 +32,19 @@ const usersReduser = (state = initialState, action) => {
                     return u;
                 })
             };
-       
+
         case SET_USERS:
             return {
-                ...state, users: [...state.users, ...action.users]
+                ...state,  users:action.users
+            };
+
+        case SET_CURRENT_PAGE:
+            return {
+                ...state, currentPage:action.currentPage
+            };
+            case SET_TOTAL_USERS_COUNT: 
+            return {
+                ...state, totalUsersCount:action.count
             }
         default:
             return state;
@@ -51,4 +60,13 @@ export const unfollowActionCreator = (userId) => ({
 export const setUsersActionCreator = (users) => ({
     type: SET_USERS, users
 })
+
+export const setCurrentPageActionCreator = (currentPage) => ({
+    type: SET_CURRENT_PAGE, currentPage
+})
+export const setTotalUsersCountActionCreator = (totalUsersCount) => ({
+    type: SET_TOTAL_USERS_COUNT, count:totalUsersCount
+})
+
+
 export default usersReduser;

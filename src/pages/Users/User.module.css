@@ -1,3 +1,16 @@
 .img {
     width: 200px;
 }
+.paginationItem {
+    border: 1px solid green;
+    margin: 0 5px;
+}
+.paginationActive {
+   font-weight: bold;
+}
+span {
+    margin: 0 10px;
+}
+.pagination {
+    max-width: 1200px;
+}

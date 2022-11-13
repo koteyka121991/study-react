@@ -5,7 +5,10 @@ const ADD_BODY_PART = 'ADD-BODY-PART';
 let initialState = {
     bodyPart: [
         { id: 1, label: "Грудь" },
-        { id: 2, label: "Ноги" }
+        { id: 2, label: "Плечи" },
+        { id: 3, label: "Бицепс" },
+        { id: 4, label: "Трицепс" },
+        
     ],
     newBodyPartText: "",
     listExercises: [
