@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-    followActionCreator, setCurrentPageActionCreator,
-    setIsFatchingActionCreator, setTotalUsersCountActionCreator,
-    setUsersActionCreator, unfollowActionCreator
+    follow, setCurrentPage,
+    setIsFatching, setTotalUsersCount,
+    setUsers, unfollow
 } from '../../Redux/Users-reduser';
 import axios from 'axios';
 import Users from './Users';
@@ -12,9 +12,9 @@ import Preloader from '../common/preloader/Preloader';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.toogleIsFatching(true);
+        this.props.setIsFatching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
-            this.props.toogleIsFatching(false);
+            this.props.setIsFatching(false);
             this.props.setUsers(response.data.items);
             this.props.setTotalUsersCount(response.data.totalCount);
         });
@@ -28,10 +28,10 @@ class UsersContainer extends React.Component {
     // }
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-        this.props.toogleIsFatching(true);
+        this.props.setIsFatching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}`).then(response => {
             this.props.setUsers(response.data.items);
-            this.props.toogleIsFatching(false);
+            this.props.setIsFatching(false);
         });
     }
     render() {
@@ -56,28 +56,13 @@ let mapStateToProps = (state) => {
         isFetching: state.usersPage.isFetching
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followActionCreator(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowActionCreator(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersActionCreator(users))
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageActionCreator(pageNumber))
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setTotalUsersCountActionCreator(totalCount))
-        },
-        toogleIsFatching: (isFetching) => {
-            dispatch(setIsFatchingActionCreator(isFetching))
-        }
-    }
 
-}
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    setIsFatching
+    })(UsersContainer);
 

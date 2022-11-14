@@ -8,6 +8,7 @@ import CatalogContainer from './pages/catalog/CatalogContainer';
 import DiaryContainer from './pages/Diary/DiaryContainer';
 import SidebarContainer from './pages/Sidebar/SidebarContainer';
 import UsersContainer from './pages/Users/UsersContainer';
+import WorkoutContainer from './pages/workout/Workout-container';
 
 
 function App(props) {
@@ -26,6 +27,8 @@ function App(props) {
               <Route path='programs' element={<Programs />} />
               <Route path='catalog' element={<CatalogContainer />} />
               <Route path='users' element={<UsersContainer/> }/>
+              <Route path='workouttest' element={<WorkoutContainer/> }/>
+
             </Routes>
           </section>
         </div>
