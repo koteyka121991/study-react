@@ -9,6 +9,7 @@ import DiaryContainer from './pages/Diary/DiaryContainer';
 import SidebarContainer from './pages/Sidebar/SidebarContainer';
 import UsersContainer from './pages/Users/UsersContainer';
 import WorkoutContainer from './pages/workout/Workout-container';
+import ProfileContainer from './pages/Profile/ProfileContainer';
 
 
 function App(props) {
@@ -28,7 +29,7 @@ function App(props) {
               <Route path='catalog' element={<CatalogContainer />} />
               <Route path='users' element={<UsersContainer/> }/>
               <Route path='workouttest' element={<WorkoutContainer/> }/>
-
+              <Route path='profile' element={<ProfileContainer/> }/>
             </Routes>
           </section>
         </div>

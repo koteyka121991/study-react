@@ -65,4 +65,3 @@ export default connect(mapStateToProps, {
     setTotalUsersCount,
     setIsFatching
     })(UsersContainer);
-

@@ -1,6 +1,7 @@
 import {combineReducers, legacy_createStore as createStore} from "redux";
 import catalogReduser from './Catalog-reduser';
 import diaryReduser from './Diary-reduser';
+import profileReduser from "./profile-reduser";
 import sidebarReduser from "./Sidebar-reduser";
 import usersReduser from "./Users-reduser";
 import workoutReduser from "./workout-reduser";
@@ -10,7 +11,8 @@ let redusers = combineReducers(
         diary:diaryReduser,
         sidebar:sidebarReduser,
         usersPage:usersReduser,
-        workoutPage:workoutReduser
+        workoutPage:workoutReduser,
+        profilePage: profileReduser
        
     }
 );
