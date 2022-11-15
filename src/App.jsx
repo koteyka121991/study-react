@@ -29,7 +29,11 @@ function App(props) {
               <Route path='catalog' element={<CatalogContainer />} />
               <Route path='users' element={<UsersContainer/> }/>
               <Route path='workouttest' element={<WorkoutContainer/> }/>
-              <Route path='profile' element={<ProfileContainer/> }/>
+              <Route path="/profile" element={<ProfileContainer />}>
+        <Route path=":userId" element={<ProfileContainer />} />
+    
+        
+      </Route>
             </Routes>
           </section>
         </div>

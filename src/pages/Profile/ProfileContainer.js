@@ -7,10 +7,18 @@ import {addPost,
     setUserProfile
     
 } from '../../Redux/profile-reduser';
+import { useParams } from 'react-router-dom'; 
 
 class ProfileContainer extends React.Component {
-    componentDidMount () {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+    componentDidMount () {   
+  debugger;
+        
+        let userId = this.props.match.params.userId;
+        if (!userId) {
+            userId = 2;
+        }
+        
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+ userId)
         .then(response => {             
             this.props.setUserProfile(response.data);       
         });
@@ -27,9 +35,17 @@ let mapStateToProps = (state) => ({
    newPostText:state.profilePage.newPostText
  
 })
+let WithUrlDataContainerComponent= withRouter(ProfileContainer);
+export function withRouter(Children){
+    return(props)=>{
 
+       const match  = {params: useParams()};
+       return <Children {...props}  match = {match}/>
+   }
+ }
+ 
 export default connect(mapStateToProps,{
     addPost,
     updateNewPostText,
     setUserProfile }) 
-    (ProfileContainer);
+    (WithUrlDataContainerComponent);
