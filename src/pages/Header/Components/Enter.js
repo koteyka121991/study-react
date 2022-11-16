@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Enter =() => {
+const Login =() => {
     return(
 <li><a href='#'>Войти</a></li>
     )
 }
-export default Enter;
+export default Login;

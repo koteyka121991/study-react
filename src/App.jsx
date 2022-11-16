@@ -10,14 +10,14 @@ import SidebarContainer from './pages/Sidebar/SidebarContainer';
 import UsersContainer from './pages/Users/UsersContainer';
 import WorkoutContainer from './pages/workout/Workout-container';
 import ProfileContainer from './pages/Profile/ProfileContainer';
+import HeaderContainer from './pages/Header/HeaderContainer';
 
 
 function App(props) {
   return (
     <>
       <div className='wrapper'>
-
-        <Header />
+        <HeaderContainer />
         <Row />
         <div className='container'>
           <SidebarContainer />
