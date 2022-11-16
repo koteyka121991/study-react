@@ -7,29 +7,28 @@ import {
 } from '../../Redux/Users-reduser';
 import axios from 'axios';
 import Users from './Users';
-import eclipse from './../../assets/imgs/Eclipse.svg';
 import Preloader from '../common/preloader/Preloader';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.setIsFatching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}
+        &count=${this.props.pageSize}`,{
+            withCredentials: true
+        }).then(response => {
             this.props.setIsFatching(false);
             this.props.setUsers(response.data.items);
             this.props.setTotalUsersCount(response.data.totalCount);
         });
     }
-    // onPageChanged = (pageNumber) => {
-    //     this.props.setCurrentPage(pageNumber);
-    //     axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
-    //         this.props.setUsers(response.data.items);
-    //     });
-    // чтобы взять из пропсов 
-    // }
+
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.setIsFatching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}`,
+        {
+            withCredentials: true
+        }).then(response => {
             this.props.setUsers(response.data.items);
             this.props.setIsFatching(false);
         });
