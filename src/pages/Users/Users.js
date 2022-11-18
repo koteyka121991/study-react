@@ -2,8 +2,7 @@ import React from 'react';
 import userPhoto from './../../assets/imgs/users-vector-icon-png_260862.jpg';
 import Styles from './User.module.css';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
-import { usersAPI } from '../../API/api';
+
 
 
 let Users = (props) => {
