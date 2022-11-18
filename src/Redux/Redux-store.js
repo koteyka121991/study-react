@@ -1,4 +1,5 @@
-import {combineReducers, legacy_createStore as createStore} from "redux";
+import {applyMiddleware, combineReducers, legacy_createStore as createStore} from "redux";
+import thunkMiddleware from 'redux-thunk'
 import authReduser from "./auth-reduser";
 import catalogReduser from './Catalog-reduser';
 import diaryReduser from './Diary-reduser';
@@ -19,7 +20,8 @@ let redusers = combineReducers(
     }
 );
 
-
-let store = createStore(redusers);
+// applyMiddleware принимает промежуточные слои
+// npm i redux-thunk middleware для Redux
+let store = createStore(redusers, applyMiddleware(thunkMiddleware));
 
  export default store;

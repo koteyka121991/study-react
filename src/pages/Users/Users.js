@@ -3,6 +3,7 @@ import userPhoto from './../../assets/imgs/users-vector-icon-png_260862.jpg';
 import Styles from './User.module.css';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import { usersAPI } from '../../API/api';
 
 
 let Users = (props) => {
@@ -11,6 +12,8 @@ let Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
+
+
     return (
         <>
             <div className={Styles.pagination}>
@@ -31,37 +34,13 @@ let Users = (props) => {
                     ? <button disabled={props.followingInProgress.some(id => id === u.id)}
                         //* disabled блокирует действие кнопки
                         //some проверяет, удовлетворяет ли какой либо элемент массива условию,заданому в передаваемой функции
-                        onClick={() => {                       
-                            props.tooglefollowingInProgress(true);
-                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                                withCredentials: true,
-                                headers: {
-                                    "API-KEY": "5905da2b-6481-40f8-a674-105c423438e0"
-                                }
-                            })
-                                .then(response => {
-                                    if (response.data.resultCode == 0) { props.unfollow(u.id) }
-                                    props.tooglefollowingInProgress(false, u.id);
-                                });
+                        onClick={() => {props.unfollow(u.id);                            
                         }}>unfollow</button>
-                    : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                        props.tooglefollowingInProgress(true, u.id);
-                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
-                            {
-                                withCredentials: true,
-                                headers: {
-                                    "API-KEY": "5905da2b-6481-40f8-a674-105c423438e0"
-                                }
-                            })
-                            .then(response => {
-                                if (response.data.resultCode == 0) { props.follow(u.id) }
-                                props.tooglefollowingInProgress(false, u.id);
-                            });
-                    }}>follow</button>
-
+                    : <button disabled={props.followingInProgress.
+                        some(id => id === u.id)} onClick={() => {props.follow(u.id);                           
+                        }}>follow</button>
                 }
                 </div>
-
             </div>)}
         </>
     )

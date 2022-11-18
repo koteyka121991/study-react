@@ -1,3 +1,6 @@
+import { usersAPI } from "../API/api";
+
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -68,6 +71,8 @@ const usersReduser = (state = initialState, action) => {
     }
 }
 
+
+
 // Экшен криэйты
 export const follow = (userId) => ({
     type: FOLLOW, userId
@@ -91,5 +96,26 @@ export const tooglefollowingInProgress = (isFetching, userId) => ({
     type: TOOGLE_IS_FOLLOWING_PROGRESS, isFetching, userId
 })
 
+// создаем функцию thunk  getUsers (получение юзера) функция принмает метод(функцию) dispatch
+// thunk диспачит экшены 
+// скопировали то что было в usersContainer  в getUsers
+// this.props.setIsFatching(true);
+//         usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+//             this.props.setIsFatching(false);
+//             this.props.setUsers(data.items);
+//             this.props.setTotalUsersCount(data.totalCount);
+//         });
+// getUsers(ранее была getUsersThunkCreator) =() =>{} функция которая принимает что либо и возвращает thunk
+
+
+export const getUsers = (currentPage, pageSize) => {
+    return (dispatch) => {
+    dispatch (setIsFatching(true));
+    usersAPI.getUsers(currentPage, pageSize).then(data => {
+        dispatch (setIsFatching(false));
+        dispatch (setUsers(data.items));
+        dispatch (setTotalUsersCount(data.totalCount));      
+    });
+}}
 
 export default usersReduser;
