@@ -2,7 +2,7 @@ import React from 'react';
 
 const Login =() => {
     return(
-<li><a href='#'>Войти</a></li>
+<h1>Войти</h1>
     )
 }
 export default Login;

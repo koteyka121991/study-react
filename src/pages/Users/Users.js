@@ -10,7 +10,9 @@ let Users = (props) => {
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
-    }
+    } 
+    
+ 
     return (
         <>
             <div className={Styles.pagination}>
@@ -27,6 +29,7 @@ let Users = (props) => {
                 <div>{u.status}</div>
                 <div>{u.city}</div>
                 <div>{u.age}</div>
+
                 <div>{u.followed
                     ? <button onClick={() => {
                         axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {

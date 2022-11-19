@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Header from './pages/Header/Header';
 import Programs from './pages/TrainingPrograms/Programs';
 import Row from './pages/Row/Row';
 import CatalogContainer from './pages/catalog/CatalogContainer';
@@ -11,6 +10,7 @@ import UsersContainer from './pages/Users/UsersContainer';
 import WorkoutContainer from './pages/workout/Workout-container';
 import ProfileContainer from './pages/Profile/ProfileContainer';
 import HeaderContainer from './pages/Header/HeaderContainer';
+import LoginContaier from './pages/Header/Components/login-container';
 
 
 function App(props) {
@@ -27,13 +27,12 @@ function App(props) {
               } />
               <Route path='programs' element={<Programs />} />
               <Route path='catalog' element={<CatalogContainer />} />
-              <Route path='users' element={<UsersContainer/> }/>
-              <Route path='workouttest' element={<WorkoutContainer/> }/>
+              <Route path='users' element={<UsersContainer />} />
+              <Route path='workouttest' element={<WorkoutContainer />} />
               <Route path="/profile" element={<ProfileContainer />}>
-        <Route path=":userId" element={<ProfileContainer />} />
-    
-        
-      </Route>
+              <Route path=":userId" element={<ProfileContainer />} />
+              <Route path="login" element={<LoginContaier />} />
+              </Route>
             </Routes>
           </section>
         </div>

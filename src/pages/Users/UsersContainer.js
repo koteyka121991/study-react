@@ -5,16 +5,15 @@ import {
     setIsFatching, setTotalUsersCount,
     setUsers, unfollow
 } from '../../Redux/Users-reduser';
-import axios from 'axios';
 import Users from './Users';
 import Preloader from '../common/preloader/Preloader';
-import { getUsers, usersAPI } from '../../API/api';
+import { usersAPI } from '../../API/api';
+import { Navigate } from 'react-router-dom';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.setIsFatching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-          
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {          
             this.props.setIsFatching(false);
             this.props.setUsers(data.items);
             this.props.setTotalUsersCount(data.totalCount);
@@ -30,6 +29,8 @@ class UsersContainer extends React.Component {
         });
     }
     render() {
+        
+        if (!this.props.isAuth === false)  return <Navigate to = 'login'/>
         return <> {this.props.isFetching ? <Preloader /> : null}
             <Users totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
@@ -37,7 +38,9 @@ class UsersContainer extends React.Component {
                 onPageChanged={this.onPageChanged}
                 users={this.props.users}
                 follow={this.props.follow}
-                unfollow={this.props.unfollow} />
+                unfollow={this.props.unfollow}
+
+               />
         </>
     }
 }
@@ -48,7 +51,9 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        isAuth: state.auth.isAuth   
+        
     }
 }
 

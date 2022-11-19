@@ -7,7 +7,7 @@ import {addPost,
     setUserProfile
     
 } from '../../Redux/profile-reduser';
-import { useParams } from 'react-router-dom'; 
+import { Navigate, useParams } from 'react-router-dom'; 
 
 class ProfileContainer extends React.Component {
     componentDidMount () {   
@@ -24,6 +24,9 @@ class ProfileContainer extends React.Component {
         });
     }
     render() {
+        
+        if (!this.props.isAuth === false)
+        return <Navigate to = 'login'/>
         return (
             <Profile {...this.props} profile = {this.props.profile}/>
         )
@@ -32,7 +35,8 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({ 
    profile:state.profilePage.profile,
    post:state.profilePage.post,
-   newPostText:state.profilePage.newPostText
+   newPostText:state.profilePage.newPostText,
+   isAuth: state.auth.isAuth   
  
 })
 let WithUrlDataContainerComponent= withRouter(ProfileContainer);

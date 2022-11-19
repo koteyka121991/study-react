@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Login from './Components/Enter';
+import Login from './Components/Login';
 import Logo from './Components/Logo';
 import Register from './Components/Register';
 import Style from './Header.module.css'
