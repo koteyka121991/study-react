@@ -1,18 +1,23 @@
+import { usersAPI } from "../API/api";
+
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOOGLE_IS_FETCHING = 'TOOGLE_IS_FETCHING';
+const TOOGLE_IS_FOLLOWING_PROGRESS = 'TOOGLE_IS_FOLLOWING_PROGRESS';
 let initialState = {
     users: [],
     pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: true
+    isFetching: true, // крутилка
+    followingInProgress: []
 }
 const usersReduser = (state = initialState, action) => {
-
+    // обработка экшенов
     switch (action.type) {
         case UNFOLLOW:
             return {
@@ -48,14 +53,27 @@ const usersReduser = (state = initialState, action) => {
             return {
                 ...state, totalUsersCount: action.count
             }
-           case TOOGLE_IS_FETCHING:
+        case TOOGLE_IS_FETCHING:
             return {
                 ...state, isFetching: action.isFetching
-            } 
+            }
+        case TOOGLE_IS_FOLLOWING_PROGRESS:
+            return {
+                ...state,
+                followingInProgress: action.isFetching
+                    ?[...state.followingInProgress, action.userId]
+                    :state.followingInProgress.filter(id => id != action.userId)
+            }
+        // != не равно
+        // выше указали тернарное выражение (условие )
         default:
             return state;
     }
 }
+
+
+
+// Экшен криэйты
 export const follow = (userId) => ({
     type: FOLLOW, userId
 })
@@ -74,6 +92,30 @@ export const setTotalUsersCount = (totalUsersCount) => ({
 export const setIsFatching = (isFetching) => ({
     type: TOOGLE_IS_FETCHING, isFetching
 })
+export const tooglefollowingInProgress = (isFetching, userId) => ({
+    type: TOOGLE_IS_FOLLOWING_PROGRESS, isFetching, userId
+})
 
+// создаем функцию thunk  getUsers (получение юзера) функция принмает метод(функцию) dispatch
+// thunk диспачит экшены 
+// скопировали то что было в usersContainer  в getUsers
+// this.props.setIsFatching(true);
+//         usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+//             this.props.setIsFatching(false);
+//             this.props.setUsers(data.items);
+//             this.props.setTotalUsersCount(data.totalCount);
+//         });
+// getUsers(ранее была getUsersThunkCreator) =() =>{} функция которая принимает что либо и возвращает thunk
+
+
+export const getUsers = (currentPage, pageSize) => {
+    return (dispatch) => {
+    dispatch (setIsFatching(true));
+    usersAPI.getUsers(currentPage, pageSize).then(data => {
+        dispatch (setIsFatching(false));
+        dispatch (setUsers(data.items));
+        dispatch (setTotalUsersCount(data.totalCount));      
+    });
+}}
 
 export default usersReduser;

@@ -1,27 +1,20 @@
 import React from 'react';
 import Profile from './Profile';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import {addPost,
     updateNewPostText,
-    setUserProfile
-    
+     getUserProfile    
 } from '../../Redux/profile-reduser';
 import { Navigate, useParams } from 'react-router-dom'; 
 
-class ProfileContainer extends React.Component {
-    componentDidMount () {   
 
-        
+class ProfileContainer extends React.Component {
+    componentDidMount () {           
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = 2;
-        }
-        
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+ userId)
-        .then(response => {             
-            this.props.setUserProfile(response.data);       
-        });
+        }  
+         this.props.getUserProfile(userId);          
     }
     render() {
         
@@ -42,14 +35,11 @@ let mapStateToProps = (state) => ({
 let WithUrlDataContainerComponent= withRouter(ProfileContainer);
 export function withRouter(Children){
     return(props)=>{
-
        const match  = {params: useParams()};
        return <Children {...props}  match = {match}/>
    }
  }
  
 export default connect(mapStateToProps,{
-    addPost,
-    updateNewPostText,
-    setUserProfile }) 
+    addPost,updateNewPostText,getUserProfile }) 
     (WithUrlDataContainerComponent);
