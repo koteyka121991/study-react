@@ -3,20 +3,21 @@ import { connect } from 'react-redux';
 import {
     follow, unfollow, getUsers
 } from '../../Redux/Users-reduser';
-import axios from 'axios';
 import Users from './Users';
 import Preloader from '../common/preloader/Preloader';
-import { getUsers, usersAPI } from '../../API/api';
+import { Navigate } from 'react-router-dom';
+
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.setIsFatching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-          
-            this.props.setIsFatching(false);
-            this.props.setUsers(data.items);
-            this.props.setTotalUsersCount(data.totalCount);
-        });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        // this.props.setIsFatching(true);
+        // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+        //     this.props.setIsFatching(false);
+        //     this.props.setUsers(data.items);
+        //     this.props.setTotalUsersCount(data.totalCount);
+        // });
+        
     }
 
     onPageChanged = (pageNumber) => {
@@ -32,14 +33,19 @@ class UsersContainer extends React.Component {
 
 
     render() {
-        return <> {this.props.isFetching ? <Preloader /> : null}
+        if (!this.props.isAuth === false)
+        return <Navigate to = 'login'/>
+        return <> {this.props.isFetching ? <Preloader /> : null}    
             <Users totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
                 currentPage={this.props.currentPage}
                 onPageChanged={this.onPageChanged}
                 users={this.props.users}
                 follow={this.props.follow}
-                unfollow={this.props.unfollow} />
+                unfollow={this.props.unfollow}                
+                followingInProgress={this.props.followingInProgress}
+                /* тут находятся пропсы которые мы отправляем в презенстационую компоненту */
+            />
         </>
     }
 }
@@ -50,7 +56,9 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress,
+        isAuth: state.auth.isAuth   
     }
 }
 
