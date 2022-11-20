@@ -7,6 +7,7 @@ import Users from './Users';
 import Preloader from '../common/preloader/Preloader';
 import { Navigate } from 'react-router-dom';
 import { WithRedirectComponent } from '../../HOC/withAuthRedurect';
+import { compose } from 'redux';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -47,7 +48,7 @@ class UsersContainer extends React.Component {
         </>
     }
 }
-let withRedirect = WithRedirectComponent(UsersContainer); 
+// let withRedirect = WithRedirectComponent(UsersContainer); 
 
 let mapStateToProps = (state) => {
     return {
@@ -61,9 +62,16 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {
+// export default connect(mapStateToProps, {
+//     follow,unfollow, getUsers
+// })(withRedirect);
+
+
+export default compose (
+    WithRedirectComponent,
+    connect(mapStateToProps, {
     follow,unfollow, getUsers
-})(withRedirect);
+})) (UsersContainer);
 
 
 
