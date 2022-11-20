@@ -6,7 +6,7 @@ import {
 import Users from './Users';
 import Preloader from '../common/preloader/Preloader';
 import { Navigate } from 'react-router-dom';
-
+import { WithRedirectComponent } from '../../HOC/withAuthRedurect';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -32,9 +32,7 @@ class UsersContainer extends React.Component {
     }
 
 
-    render() {
-        if (!this.props.isAuth === false)
-        return <Navigate to = 'login'/>
+    render() {      
         return <> {this.props.isFetching ? <Preloader /> : null}    
             <Users totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
@@ -49,6 +47,7 @@ class UsersContainer extends React.Component {
         </>
     }
 }
+let withRedirect = WithRedirectComponent(UsersContainer); 
 
 let mapStateToProps = (state) => {
     return {
@@ -58,13 +57,13 @@ let mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress,
-        isAuth: state.auth.isAuth   
+     
     }
 }
 
 export default connect(mapStateToProps, {
     follow,unfollow, getUsers
-})(UsersContainer);
+})(withRedirect);
 
 
 
