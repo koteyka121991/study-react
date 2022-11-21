@@ -8,31 +8,48 @@ const instance = axios.create({
 
 export const usersAPI = {
   async getUsers(currentPage, pageSize) {
-     // промис
+    // промис
+    // get параметры ставим вопросительный знак
     const response = await instance.get(`users?page=${currentPage}
         &count=${pageSize}`);
     return response.data;
   },
   follow(userId) {
-     // промис
+    // промис
     return instance.post(`follow/${userId}`, {},
     )
   },
   unfollow(userId) {
-     // промис
-    return instance.delete(`follow/${userId}`, )
+    // промис
+    return instance.delete(`follow/${userId}`,)
   },
   getProfile(userId) {
-     // промис
-    return instance.get(`profile/`+ userId);
-    }
+    console.warn("Obsolute method. Please profileAPI objet")
+    return profileAPI.getProfile(userId);
+  }
+}
+export const profileAPI = {
+  getProfile(userId) {
+    // промис
+    return instance.get(`profile/` + userId);
+  },
+  getStatus(userId) {
+    // получаем стаутс пользователя
+    return instance.get(`/profile/status/` + userId);
+  },
+  updateStatus(status) {
+    // изменяем стаутс пользователя
+    return instance.put(`/profile/status`, {status} );
+  },
+  
 }
 
 export const authAPI = {
   me() {
     // промис
-    return instance.get(`auth/me`, ) }
- 
+    return instance.get(`auth/me`,)
+  }
+
 }
 
 
