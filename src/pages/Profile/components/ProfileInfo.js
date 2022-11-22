@@ -8,7 +8,7 @@ const ProfileInfo = (props) => {
     return (
         <>
             <img src={props.profile.photos.large}></img>
-            <p >{props.profile.lookingForAJobDescription}</p>
+      
             <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
         
         </>
