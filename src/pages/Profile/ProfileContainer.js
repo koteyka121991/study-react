@@ -14,7 +14,7 @@ class ProfileContainer extends React.Component {
     componentDidMount () {   
         let userId = this.props.match.params.userId;
         if (!userId) {
-            userId = 3;
+            userId = 26722;
         }            
             this.props.getUserProfile(userId);  
             this.props.getStatus(userId);
@@ -26,8 +26,6 @@ class ProfileContainer extends React.Component {
         )
     }
 }
-// вызвали 2 раза функцию compose. Compose вызывает фунуцию. В compose мы положили ProfileContainer
-// compose вызовет WithRedirectComponent(hoc функция)
 
 
 
@@ -50,6 +48,9 @@ export function withRouter(Children){
 //     updateNewPostText,
 //     setUserProfile }) 
 //     (WithUrlDataContainerComponent);
+// вызвали 2 раза функцию compose. Compose вызывает фунуцию. В compose мы положили ProfileContainer
+// compose вызовет WithRedirectComponent(hoc функция)
+
 export default compose (
     connect(mapStateToProps,{addPost,updateNewPostText, 
         getUserProfile , getStatus, updateStatus}),

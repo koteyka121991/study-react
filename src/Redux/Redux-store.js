@@ -7,6 +7,7 @@ import profileReduser from "./profile-reduser";
 import sidebarReduser from "./Sidebar-reduser";
 import usersReduser from "./Users-reduser";
 import workoutReduser from "./workout-reduser";
+import { reducer as formReducer } from 'redux-form'
 
 let redusers = combineReducers(
     {catalogPage:catalogReduser,
@@ -16,6 +17,7 @@ let redusers = combineReducers(
         workoutPage:workoutReduser,
         profilePage: profileReduser,
         auth:authReduser
+       
        
     }
 );

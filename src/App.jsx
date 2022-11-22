@@ -11,6 +11,7 @@ import WorkoutContainer from './pages/workout/Workout-container';
 import ProfileContainer from './pages/Profile/ProfileContainer';
 import HeaderContainer from './pages/Header/HeaderContainer';
 import LoginContaier from './pages/Header/Components/login-container';
+import LoginForm from './pages/common/modal/LoginForm';
 
 
 function App(props) {
@@ -32,6 +33,7 @@ function App(props) {
               <Route path="/profile" element={<ProfileContainer />}>
               <Route path=":userId" element={<ProfileContainer />} />
               <Route path="login" element={<LoginContaier />} />
+              <Route path="loginform" element={<LoginForm />} />
               </Route>
             </Routes>
           </section>

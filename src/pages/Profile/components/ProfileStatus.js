@@ -28,7 +28,20 @@ class ProfileStatus extends React.Component {
         // currentTarget содержит элемент, для которого было назначено событие
         this.setState(
             { status: e.currentTarget.value });
+    }
+    componentDidUpdate=(prevProps, prevState) => {
+        // компонент жизненого цикла. Метод позволяет работать с DOM при обновлении компонента.
+        // Также он подходит для выполнения таких сетевых запросов, которые выполняются 
+        // на основании результата сравнения текущих пропсов с предыдущими. 
+        // Если пропсы не изменились, новый запрос может и не требоваться.
+        // обязательно прописываем условия, иначе будет ошибка 
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
 
+console.log ("componentDidUpdate");
     }
     render() {
         return (
@@ -39,6 +52,7 @@ class ProfileStatus extends React.Component {
                         {/* onDoubleClick обработчик события 2 нажатие  */}
                         {/* без bind не приходят свойста в activateEditeMode, убрала bind после обновления react script
                        метод bind, который позволяет зафиксировать this. */}
+                       {/* this.props.status || "No status" условие отображается статус пришедший с сервера или no status (|| или) */}
                         <span onDoubleClick={this.activateEditeMode}>{this.props.status || "No status"}</span>
                     </div>
                 }
